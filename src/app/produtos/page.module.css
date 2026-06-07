@@ -28,3 +28,35 @@
 
   gap: 25px;
 }
+
+.cartButton {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 25px;
+
+  padding: 12px 20px;
+
+  background: #38bdf8;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 10px;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.cartButton:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}

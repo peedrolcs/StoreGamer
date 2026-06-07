@@ -10,6 +10,7 @@ export default function Carrinho() {
 
     const { cart, removeFromCart } = useCart();
     const [mensagem, setMensagem] = useState("");
+    const [compraFinalizada, setCompraFinalizada] = useState(false);
 
     const total = cart.reduce(
         (acc, item) => acc + item.preco,
@@ -81,6 +82,31 @@ export default function Carrinho() {
                         {total.toFixed(2)}
                     </h2>
                 </>
+            )}
+            <button
+                className={styles.checkoutButton}
+                onClick={() => {
+
+                    setCompraFinalizada(true);
+
+                    setMensagem("");
+
+                }}
+            >
+                Finalizar Compra
+            </button>
+            {compraFinalizada && (
+
+                <p className={styles.successMessage}>
+
+                    ✅ Compra realizada com sucesso!
+
+                    <br />
+
+                    Obrigado por comprar na Store Gamer.
+
+                </p>
+
             )}
 
         </main>

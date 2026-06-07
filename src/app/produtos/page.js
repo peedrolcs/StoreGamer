@@ -1,5 +1,8 @@
 "use client";
 
+import Link from "next/link";
+import { FaShoppingCart } from "react-icons/fa";
+
 import { useState } from "react";
 
 import products from "@/data/products";
@@ -9,44 +12,52 @@ import styles from "./page.module.css";
 
 export default function Produtos() {
 
-  const [busca, setBusca] = useState("");
+    const [busca, setBusca] = useState("");
 
-  const produtosFiltrados = products.filter((produto) =>
-    produto.nome
-      .toLowerCase()
-      .includes(busca.toLowerCase())
-  );
+    const produtosFiltrados = products.filter((produto) =>
+        produto.nome
+            .toLowerCase()
+            .includes(busca.toLowerCase())
+    );
 
-  return (
-    <main className={styles.container}>
+    return (
+        <main className={styles.container}>
 
-      <h1 className={styles.title}>
-        Produtos Gamer
-      </h1>
+            <h1 className={styles.title}>
+                Produtos Gamer
+            </h1>
 
-      <input
-        type="text"
-        placeholder="Buscar produto..."
-        value={busca}
-        onChange={(e) =>
-          setBusca(e.target.value)
-        }
-        className={styles.search}
-      />
+            <Link
+                href="/carrinho"
+                className={styles.cartButton}
+            >
+                <FaShoppingCart />
+                Ir para o Carrinho
+            </Link>
 
-      <div className={styles.grid}>
+            <input
+                type="text"
+                placeholder="Buscar produto..."
+                value={busca}
+                onChange={(e) =>
+                    setBusca(e.target.value)
+                }
+                className={styles.search}
+            />
 
-        {produtosFiltrados.map((produto) => (
+            <div className={styles.grid}>
 
-          <ProductCard
-            key={produto.id}
-            produto={produto}
-          />
+                {produtosFiltrados.map((produto) => (
 
-        ))}
+                    <ProductCard
+                        key={produto.id}
+                        produto={produto}
+                    />
 
-      </div>
+                ))}
 
-    </main>
-  );
+            </div>
+
+        </main>
+    );
 }

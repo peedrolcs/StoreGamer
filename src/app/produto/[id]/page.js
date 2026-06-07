@@ -1,4 +1,6 @@
 "use client";
+import Link from "next/link";
+
 import { useState } from "react";
 
 import { useParams } from "next/navigation";
@@ -62,6 +64,20 @@ export default function ProdutoDetalhe() {
                         {mensagem}
                     </p>
                 )}
+
+                <Link
+                    href="/produtos"
+                    className={styles.continueButton}
+                >
+                    Continuar Comprando
+                </Link>
+
+                <Link
+                    href="/carrinho"
+                    className={styles.cartButton}
+                >
+                    🛒 Ir para o Carrinho
+                </Link>
 
             </div>
 
