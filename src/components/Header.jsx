@@ -1,3 +1,4 @@
+"use client";
 // Importa o componente Link do Next.js
 // Ele permite navegar entre páginas sem recarregar o site
 import Link from "next/link";
@@ -11,11 +12,14 @@ import {
   FaEnvelope
 } from "react-icons/fa";
 
+import { useCart } from "@/context/CartContext";
+
 // Importa os estilos CSS deste componente
 import styles from "./Header.module.css";
 
 // Componente Header
 export default function Header() {
+  const { cart } = useCart();
 
   // O return é o que será exibido na tela
   return (
@@ -53,7 +57,7 @@ export default function Header() {
         {/* Link para Carrinho */}
         <Link href="/carrinho">
           <FaShoppingCart />
-          Carrinho
+          Carrinho ({cart.length})
         </Link>
 
         <Link href="/contato">

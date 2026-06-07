@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 
 import { useParams } from "next/navigation";
 
@@ -9,46 +10,61 @@ import { useCart } from "@/context/CartContext";
 
 export default function ProdutoDetalhe() {
 
-  const params = useParams();
+    const params = useParams();
 
-  const { addToCart } = useCart();
+    const { addToCart } = useCart();
+    const [mensagem, setMensagem] = useState("");
 
-  const produto = products.find(
-    (p) => p.id === Number(params.id)
-  );
+    const produto = products.find(
+        (p) => p.id === Number(params.id)
+    );
 
-  if (!produto) {
-    return <h1>Produto não encontrado</h1>;
-  }
+    if (!produto) {
+        return <h1>Produto não encontrado</h1>;
+    }
 
-  return (
-    <main className={styles.container}>
+    return (
+        <main className={styles.container}>
 
-      <img
-        src={produto.imagem}
-        alt={produto.nome}
-        className={styles.image}
-      />
+            <img
+                src={produto.imagem}
+                alt={produto.nome}
+                className={styles.image}
+            />
 
-      <div>
+            <div>
 
-        <h1>{produto.nome}</h1>
+                <h1>{produto.nome}</h1>
 
-        <p className={styles.price}>
-          R$ {produto.preco}
-        </p>
+                <p className={styles.price}>
+                    R$ {produto.preco}
+                </p>
 
-        <p>{produto.descricao}</p>
+                <p>{produto.descricao}</p>
 
-        <button
-          className={styles.button}
-          onClick={() => addToCart(produto)}
-        >
-          Adicionar ao Carrinho
-        </button>
+                <button
+                    className={styles.button}
+                    onClick={() => {
+                        addToCart(produto);
 
-      </div>
+                        setMensagem("✅ Produto adicionado ao carrinho!");
 
-    </main>
-  );
+                        setTimeout(() => {
+                            setMensagem("");
+                        }, 2000);
+                    }}
+                >
+                    Adicionar ao Carrinho
+                </button>
+
+                {mensagem && (
+                    <p className={styles.success}>
+                        {mensagem}
+                    </p>
+                )}
+
+            </div>
+
+        </main>
+    );
 }

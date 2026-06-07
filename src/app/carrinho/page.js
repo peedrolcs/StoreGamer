@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import { useCart } from "@/context/CartContext";
 
 import styles from "./page.module.css";
@@ -7,6 +9,7 @@ import styles from "./page.module.css";
 export default function Carrinho() {
 
     const { cart, removeFromCart } = useCart();
+    const [mensagem, setMensagem] = useState("");
 
     const total = cart.reduce(
         (acc, item) => acc + item.preco,
@@ -17,6 +20,12 @@ export default function Carrinho() {
         <main className={styles.container}>
 
             <h1>Meu Carrinho</h1>
+
+            {mensagem && (
+                <p className={styles.removeMessage}>
+                    {mensagem}
+                </p>
+            )}
 
             {cart.length === 0 ? (
                 <p>Seu carrinho está vazio.</p>
@@ -29,19 +38,39 @@ export default function Carrinho() {
                             className={styles.item}
                         >
 
-                            <h3>{item.nome}</h3>
+                            <img
+                                src={item.imagem}
+                                alt={item.nome}
+                                className={styles.image}
+                            />
 
-                            <p>
-                                R$ {item.preco}
-                            </p>
+                            <div className={styles.info}>
 
-                            <button
-                                onClick={() =>
-                                    removeFromCart(item.id)
-                                }
-                            >
-                                Remover
-                            </button>
+                                <h3>{item.nome}</h3>
+
+                                <p>
+                                    R$ {item.preco.toFixed(2)}
+                                </p>
+
+                                <button
+                                    onClick={() => {
+
+                                        removeFromCart(item.id);
+
+                                        setMensagem(
+                                            `🗑️ ${item.nome} removido do carrinho!`
+                                        );
+
+                                        setTimeout(() => {
+                                            setMensagem("");
+                                        }, 2000);
+
+                                    }}
+                                >
+                                    Remover
+                                </button>
+
+                            </div>
 
                         </div>
 
