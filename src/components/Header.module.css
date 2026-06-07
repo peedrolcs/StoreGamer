@@ -1,0 +1,67 @@
+/* Container principal do cabeçalho */
+.header {
+
+  /* Alinha os itens horizontalmente */
+  display: flex;
+
+  /* Espaço entre logo e menu */
+  justify-content: space-between;
+
+  /* Centraliza verticalmente */
+  align-items: center;
+
+  /* Espaçamento interno */
+  padding: 20px 40px;
+
+  /* Fundo escuro */
+  background-color: #0f172a;
+
+  /* Linha inferior */
+  border-bottom: 1px solid #1e293b;
+}
+
+/* Logo */
+.logo {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #38bdf8;
+
+  font-size: 28px;
+
+  font-weight: bold;
+}
+
+/* Navegação */
+.nav {
+
+  display: flex;
+
+  gap: 25px;
+}
+
+/* Links */
+.nav a {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: white;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+/* Efeito ao passar o mouse */
+.nav a:hover {
+
+  color: #38bdf8;
+}
