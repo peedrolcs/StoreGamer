@@ -59,7 +59,7 @@ export default function Carrinho() {
                                         removeFromCart(item.id);
 
                                         setMensagem(
-                                            `🗑️ ${item.nome} removido do carrinho!`
+                                            ` ${item.nome} removido do carrinho!`
                                         );
 
                                         setTimeout(() => {
@@ -99,7 +99,7 @@ export default function Carrinho() {
 
                 <p className={styles.successMessage}>
 
-                    ✅ Compra realizada com sucesso!
+                     Compra realizada com sucesso!
 
                     <br />
 

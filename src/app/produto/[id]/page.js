@@ -49,7 +49,7 @@ export default function ProdutoDetalhe() {
                     onClick={() => {
                         addToCart(produto);
 
-                        setMensagem("✅ Produto adicionado ao carrinho!");
+                        setMensagem("Produto adicionado ao carrinho!");
 
                         setTimeout(() => {
                             setMensagem("");
@@ -76,7 +76,7 @@ export default function ProdutoDetalhe() {
                     href="/carrinho"
                     className={styles.cartButton}
                 >
-                    🛒 Ir para o Carrinho
+                     Ir para o Carrinho
                 </Link>
 
             </div>

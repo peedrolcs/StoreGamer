@@ -33,7 +33,7 @@ export default function Sobre() {
             <section className={styles.cards}>
 
                 <div className={styles.card}>
-                    <h3>🎯 Missão</h3>
+                    <h3>Missão</h3>
 
                     <p>
                         Oferecer produtos tecnológicos de
@@ -42,7 +42,7 @@ export default function Sobre() {
                 </div>
 
                 <div className={styles.card}>
-                    <h3>🚀 Visão</h3>
+                    <h3>Visão</h3>
 
                     <p>
                         Ser referência no mercado de
@@ -51,7 +51,7 @@ export default function Sobre() {
                 </div>
 
                 <div className={styles.card}>
-                    <h3>⭐ Valores</h3>
+                    <h3>Valores</h3>
 
                     <p>
                         Qualidade, inovação e compromisso

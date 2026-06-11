@@ -23,15 +23,15 @@ export default function Home() {
 
       <section className={styles.benefits}>
         <div className={styles.card}>
-          ⚡ Alta Performance
+           Alta Performance
         </div>
 
         <div className={styles.card}>
-          🚚 Entrega Rápida
+          Entrega Rápida
         </div>
 
         <div className={styles.card}>
-          🛡️ Compra Segura
+          Compra Segura
         </div>
       </section>
 
